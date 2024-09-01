@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
+
 @Repository
 public class InMemoryContactRepository implements ContactRepository {
 
@@ -20,5 +22,13 @@ public class InMemoryContactRepository implements ContactRepository {
     public Contact save(Contact contact) {
         contactStorage.put(contact.getEmail(), contact);
         return contact;
+    }
+
+    @Override
+    public Contact findById(UUID id) {
+        return contactStorage.values().stream()
+            .filter(contact -> contact.getId().equals(id))
+            .findFirst()
+            .orElse(null);
     }
 }

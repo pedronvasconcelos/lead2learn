@@ -2,8 +2,7 @@ package com.vascontech.lead2learn.crm.domain.usecases
 
 import com.vascontech.lead2learn.crm.domain.ContactBuilder
 import com.vascontech.lead2learn.crm.domain.ContactRepository
-import com.vascontech.lead2learn.crm.domain.CreateAContactRequest
-import com.vascontech.lead2learn.crm.domain.CreateAContactUseCase
+import com.vascontech.lead2learn.crm.domain.models.CreateAContactRequest
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.*
@@ -17,13 +16,18 @@ class CreateAContactUseCaseTest {
     @BeforeEach
     fun setUp() {
         contactRepository = mock(ContactRepository::class.java)
-        createAContactUseCase = CreateAContactUseCase(contactRepository)
+        createAContactUseCase =
+            CreateAContactUseCase(contactRepository)
     }
 
     @Test
     fun `execute should create contact when it doesn't exist`() {
         // Arrange
-        val request = CreateAContactRequest("John", "Doe", "john@example.com")
+        val request = CreateAContactRequest(
+            "John",
+            "Doe",
+            "john@example.com"
+        )
         val savedContact = ContactBuilder().setFirstName("John").setLastName("Doe").setEmail("john@example.com").createContact()
 
         `when`(contactRepository.existsByEmail("john@example.com")).thenReturn(false)
@@ -41,7 +45,11 @@ class CreateAContactUseCaseTest {
     @Test
     fun `execute should not create contact when it already exists`() {
         // Arrange
-        val request = CreateAContactRequest("John", "Doe", "john@example.com")
+        val request = CreateAContactRequest(
+            "John",
+            "Doe",
+            "john@example.com"
+        )
         `when`(contactRepository.existsByEmail("john@example.com")).thenReturn(true)
 
         // Act
@@ -57,7 +65,11 @@ class CreateAContactUseCaseTest {
     @Test
     fun `execute should throw exception when repository fails`() {
         // Arrange
-        val request = CreateAContactRequest("John", "Doe", "john@example.com")
+        val request = CreateAContactRequest(
+            "John",
+            "Doe",
+            "john@example.com"
+        )
         `when`(contactRepository.existsByEmail("john@example.com")).thenReturn(false)
         `when`(contactRepository.save(any())).thenThrow(RuntimeException("Database error"))
 

@@ -2,9 +2,9 @@ package com.vascontech.lead2learn.crm.web
 
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.vascontech.lead2learn.crm.domain.CreateAContactRequest
-import com.vascontech.lead2learn.crm.domain.CreateAContactResponse
-import com.vascontech.lead2learn.crm.domain.CreateAContactUseCase
+import com.vascontech.lead2learn.crm.domain.models.CreateAContactRequest
+import com.vascontech.lead2learn.crm.domain.models.CreateAContactResponse
+import com.vascontech.lead2learn.crm.domain.usecases.CreateAContactUseCase
 import com.vascontech.lead2learn.crm.web.controllers.v1.ContactController
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.*
@@ -32,8 +32,16 @@ class ContactControllerTest {
 
     @Test
     fun `when create contact with valid data then return created status`() {
-        val request = CreateAContactRequest("john", "john","john@example.com")
-        val response = CreateAContactResponse(UUID.randomUUID() ,true, "Contact created successfully")
+        val request = CreateAContactRequest(
+            "john",
+            "john",
+            "john@example.com"
+        )
+        val response = CreateAContactResponse(
+            UUID.randomUUID(),
+            true,
+            "Contact created successfully"
+        )
 
         doReturn(response).`when`(createAContactUseCase).execute(any(CreateAContactRequest::class.java))
 
@@ -49,8 +57,16 @@ class ContactControllerTest {
 
     @Test
     fun `when create contact with existing email then return conflict status`() {
-        val request = CreateAContactRequest("john", "john","john@example.com")
-        val response = CreateAContactResponse(null,false, "Contact created successfully")
+        val request = CreateAContactRequest(
+            "john",
+            "john",
+            "john@example.com"
+        )
+        val response = CreateAContactResponse(
+            null,
+            false,
+            "Contact created successfully"
+        )
         doReturn(response).`when`(createAContactUseCase).execute(any(CreateAContactRequest::class.java))
 
 

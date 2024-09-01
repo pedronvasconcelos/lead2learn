@@ -49,4 +49,8 @@ public class Contact {
         return id;
     }
 
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = new PhoneNumber(phoneNumber);
+    }
+
 }

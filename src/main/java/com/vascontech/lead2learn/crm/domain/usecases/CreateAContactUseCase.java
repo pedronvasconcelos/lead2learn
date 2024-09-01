@@ -1,5 +1,9 @@
-package com.vascontech.lead2learn.crm.domain;
+package com.vascontech.lead2learn.crm.domain.usecases;
 
+import com.vascontech.lead2learn.crm.domain.ContactBuilder;
+import com.vascontech.lead2learn.crm.domain.ContactRepository;
+import com.vascontech.lead2learn.crm.domain.models.CreateAContactRequest;
+import com.vascontech.lead2learn.crm.domain.models.CreateAContactResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

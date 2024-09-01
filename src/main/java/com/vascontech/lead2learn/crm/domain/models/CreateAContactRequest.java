@@ -1,4 +1,4 @@
-package com.vascontech.lead2learn.crm.domain;
+package com.vascontech.lead2learn.crm.domain.models;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
