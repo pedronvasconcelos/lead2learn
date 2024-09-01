@@ -1,4 +1,4 @@
-package com.vascontech.lead2learn.crm.domain.models;
+package com.vascontech.lead2learn.crm.domain;
 
 import com.vascontech.lead2learn.common.models.Email;
 import com.vascontech.lead2learn.common.models.PhoneNumber;

@@ -1,6 +1,4 @@
-package com.vascontech.lead2learn.crm.domain.builders;
-
-import com.vascontech.lead2learn.crm.domain.models.Contact;
+package com.vascontech.lead2learn.crm.domain;
 
 public class ContactBuilder {
     private String firstName;

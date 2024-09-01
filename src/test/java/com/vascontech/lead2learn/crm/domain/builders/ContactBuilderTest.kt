@@ -1,6 +1,7 @@
 package com.vascontech.lead2learn.crm.domain.builders
 
 
+import com.vascontech.lead2learn.crm.domain.ContactBuilder
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.DisplayName
