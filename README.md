@@ -19,7 +19,6 @@ The project is organized into multiple modules, some written in Kotlin and other
 
 ### Modules
 
-(Describe your modules here, e.g.:)
 - `common`: Common classes (Kotlin)
 - `crm`: Customer relationship management (Java)
 
