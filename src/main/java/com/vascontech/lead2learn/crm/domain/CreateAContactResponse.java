@@ -1,7 +1,10 @@
 package com.vascontech.lead2learn.crm.domain;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.util.UUID;
 
+@Schema
 public class CreateAContactResponse {
     public UUID id;
     public boolean success;

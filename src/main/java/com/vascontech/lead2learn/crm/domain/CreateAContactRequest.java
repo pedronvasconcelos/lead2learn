@@ -1,5 +1,8 @@
 package com.vascontech.lead2learn.crm.domain;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema
 public class CreateAContactRequest {
     public String firstName;
     public String lastName;
